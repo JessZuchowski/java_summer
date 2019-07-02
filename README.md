@@ -2,14 +2,14 @@
 
 ## Further practice with data structures and algorithms.
 
-[Linked Lists](\data_structures\linkedList)
+[Linked Lists](https://github.com/JessZuchowski/java_summer/tree/master/src/main/java/data_structures/linkedList)
 
-[Stacks and Queues](\main\java\data_structures\stacksAndQueues)
+[Stacks and Queues](https://github.com/JessZuchowski/java_summer/tree/master/src/main/java/data_structures/stacksAndQueues)
 
-[Trees](C:\Users\jessz\codefellows\post\java_summer\src\main\java\data_structures\trees)
+[Trees](https://github.com/JessZuchowski/java_summer/tree/master/src/main/java/data_structures/trees)
 
-[HashTables](C:\Users\jessz\codefellows\post\java_summer\src\main\java\data_structures\hashTable)
+[HashTables](https://github.com/JessZuchowski/java_summer/tree/master/src/main/java/data_structures/hashTable)
 
-[Graphs](C:\Users\jessz\codefellows\post\java_summer\src\main\java\data_structures\graph)
+[Graphs](https://github.com/JessZuchowski/java_summer/tree/master/src/main/java/data_structures/graph)
 
 ## White Board Challenges
