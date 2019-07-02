@@ -4,7 +4,7 @@
 
 [Linked Lists](\data_structures\linkedList)
 
-[Stacks and Queues](src\main\java\data_structures\stacksAndQueues)
+[Stacks and Queues](\main\java\data_structures\stacksAndQueues)
 
 [Trees](C:\Users\jessz\codefellows\post\java_summer\src\main\java\data_structures\trees)
 
