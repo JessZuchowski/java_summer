@@ -1,49 +1,65 @@
 package data_structures.stacksAndQueues;
 
-public class Stack {
-//    //declare top and temporary nodes
-//    public SQNode top;
-//    public SQNode temp;
-//
-//    public Stack() {
-//        //set top to null
-//        this.top = null;
-//    }
-//
-//    //PUSH METHOD
-//    public void push(int value) {
-//        //make new node
-//        SQNode newNode = new SQNode(value);
-//        //if stack is null, make new value the top
-//        if (this.top == null) {
-//            this.top = newNode;
-//            //make next node null
-//            newNode.next = null;
-//        }
-//      //else, insert new value to new node
-//      else {
-//          newNode.next = this.top;
-//          this.top = newNode;
-//        }
-//    }
-//
-//    //POP METHOD
-//    //remove node from top of stack and return value
-//    public SQNode pop() {
-//        if (top == null) {
-//            //make temp null node
-//            SQNode temp = null;
-//            //set top to next node
-//            top = top.next;
-//            temp.next = null;
-//        }
-//        //return value of popped node
-//        return temp;
-//    }
-//
-//    //PEEK METHOD
-//    public SQNode peek() {
-//        //return value of top node
-//        return top;
-//    }
+//https://introcs.cs.princeton.edu/java/43stack/Stack.java.html
+
+import java.util.NoSuchElementException;
+
+//LIFO - last-in-first-out
+public abstract class Stack<Item> implements Iterable<Item> {
+    //declare size and top of stack
+    public int n;
+    public SQNode top;
+
+    //initialize empty stack
+    public Stack() {
+        top = null;
+        n = 0;
+    }
+
+    //return true if stack is empty
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    //return size of stack
+    public int size() {
+        return n;
+    }
+
+    //PEEK METHOD
+    public Item peek() {
+        //if stack is empty, throw exception
+        if (isEmpty()) throw new NoSuchElementException("underflow");
+        //return item most recently added to stack
+        return (Item) top.item;
+    }
+
+    //PUSH METHOD
+    //add items to stack
+    public void push(Item item) {
+        //new node at top of stack
+        SQNode formerTop = top;
+        top = new SQNode();
+        top.item = item;
+        //next in stack is the former top
+        top.next = formerTop;
+        //increment number of elements
+        n++;
+    }
+
+    //POP METHOD
+    //remove most recently added item from stack
+    public Item pop() {
+        //if stack is empty, throw exception
+        if (isEmpty()) throw new NoSuchElementException("underflow");
+        //save item to return
+        Item item = (Item) top.item;
+        //delete top node
+        top = top.next;
+        //decrement stack size
+        n--;
+        //return saved item (most recently added)
+        return item;
+    }
+
 }

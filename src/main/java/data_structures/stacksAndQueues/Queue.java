@@ -1,9 +1,10 @@
 package data_structures.stacksAndQueues;
 
-//https://introcs.cs.princeton.edu/java/43stack/Queue.java.html
-
 import java.util.NoSuchElementException;
 
+//https://introcs.cs.princeton.edu/java/43stack/Queue.java.html
+
+//FIFO - first-in-first-out
 public abstract class Queue<Item> implements Iterable<Item>{
     //declare number of elements, beginning, and end of queue
     public int n;
@@ -53,18 +54,19 @@ public abstract class Queue<Item> implements Iterable<Item>{
     }
 
     //DEQUEUE METHOD
-    //remove items from queue
+    //remove least recently added item from queue
     public Item dequeue() {
         //if queue is empty, throw exception
         if (isEmpty()) throw new NoSuchElementException("underflow");
-        //remove least recently added item
+        //save item to return
         Item item = (Item) front.item;
+        //delete front node
         front = front.next;
-        //decrement number of elements
+        //decrement queue size
         n--;
         //if queue is empty, back is null
         if (isEmpty()) back = null;
-        //return least recently added item
+        //return saved item (least recently added)
         return item;
     }
 }
