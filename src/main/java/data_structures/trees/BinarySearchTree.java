@@ -144,7 +144,7 @@ public class BinarySearchTree {
     }
 
     //BREADTH-FIRST TRAVERSAL
-    public void breadFirstTraversal() {
+    public void breadthFirstTraversal() {
         if (root == null) {
             return;
         }
