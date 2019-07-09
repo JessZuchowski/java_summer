@@ -2,8 +2,8 @@ package data_structures.trees;
 
 //https://www.baeldung.com/java-binary-tree
 
-import data_structures.linkedList.LinkedList;
-import data_structures.stacksAndQueues.Queue;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinarySearchTree {
 
@@ -78,11 +78,11 @@ public class BinarySearchTree {
             return null;
         }
         if (value == current.value) {
-            //case one, no children
+            //case one, no children, node is a leaf
             if (current.left == null && current.right == null) {
                 return null;
             }
-            //case two, one child
+            //case two, one child, return the non-null child to be assigned to parent
             if (current.right == null) {
                 return current.left;
             }
@@ -90,8 +90,11 @@ public class BinarySearchTree {
                 return current.right;
             }
             //case three, two children
+            //find node that will replace deleted node (smallest value in right sub-tree)
             int smallestValue = findSmallestValue(current.right);
+            //assign smallest value to node
             current.value = smallestValue;
+            //delete from right sub-tree
             current.right = deleteRecursive(current.right, smallestValue);
             return current;
         }
@@ -109,20 +112,61 @@ public class BinarySearchTree {
                 : findSmallestValue(root.left);
     }
 
-    //TRAVERSAL METHODS
+    //TRAVERSAL METHODS: DEPTH-FIRST SEARCHES
     public void preOrderTraversal(TreeNode node) {
         if (node != null) {
+            //first visit root, then left sub-tree
             System.out.println(node.value + " ");
             preOrderTraversal(node.left);
+            //then visit right sub-tree
             preOrderTraversal(node.right);
         }
     }
 
     public void postOrderTraversal(TreeNode node) {
         if (node != null) {
+            //first visit left sub-tree, then right
             postOrderTraversal(node.left);
             postOrderTraversal(node.right);
+            //then visit root node
             System.out.println(node.value + " ");
+        }
+    }
+
+    public void inOrderTraversal(TreeNode node) {
+        if (node != null) {
+            //first visit left sub-tree, then root
+            inOrderTraversal(node.left);
+            System.out.println(node.value + " ");
+            //then visit right sub-tree
+            inOrderTraversal(node.right);
+        }
+    }
+
+    //BREADTH-FIRST TRAVERSAL
+    public void breadthFirstTraversal() {
+        if (root == null) {
+            return;
+        }
+        //use a queue to hold nodes from each level
+        Queue<TreeNode> nodes = new LinkedList<>();
+        //add root to queue
+        nodes.add(root);
+
+        while (!nodes.isEmpty()) {
+
+            //remove node from list and print value
+            TreeNode node = nodes.remove();
+            System.out.println(node.value + " ");
+
+            //add children to queue
+            if (node.left != null) {
+                nodes.add(node.left);
+            }
+
+            if (node.right != null) {
+                nodes.add(node.right);
+            }
         }
     }
 }
