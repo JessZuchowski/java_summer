@@ -13,3 +13,5 @@
 [Graphs](https://github.com/JessZuchowski/java_summer/tree/master/src/main/java/data_structures/graph)
 
 ## White Board Challenges
+
+All challenges are courtesy of [LeetCode.](https://leetcode.com/problemset/all/) Each individual challenge I did is linked in my class files.
