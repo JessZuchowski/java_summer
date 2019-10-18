@@ -27,5 +27,6 @@ public class ArrayForm {
 
         Collections.reverse(answer);
         return answer;
+        
     }
 }
